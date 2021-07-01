@@ -27,7 +27,7 @@ function insertEmployee(req, res) {
 
     employee.save((err, doc) => {
         if (!err) {
-            res.redirect("/employee/list");
+            res.redirect("/list");
         }
         else { console.log("Error while inserting new employee" + err); }
     })
@@ -35,7 +35,7 @@ function insertEmployee(req, res) {
 function updateEmployee(req, res){
     Employee.findOneAndUpdate({_id : req.body._id} , req.body , {new : true} , (err,doc)=>{
         if(!err){
-            res.redirect("employee/list");
+            res.redirect("/list");
         }else{
             console.log("Error during record update");
         }
@@ -67,10 +67,10 @@ router.get('/:id', (req, res) => {
 router.get('/delete/:id', (req, res)=>{
   Employee.findByIdAndRemove(req.params.id,(err,doc)=>{
       if(!err){
-          res.redirect("/employee/list");
+          res.redirect("/list");
       }
       else{
-          console.log("Error while deleting the record" + err);
+          console.log("Error while deleting the record" +err)
       }
   })
 
