@@ -18,7 +18,7 @@ app.set('view engine','hbs');
 
 var empplyeeController = require("./controller/employeeController")
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log("Server has started successfully on port 3000");
 })
 
